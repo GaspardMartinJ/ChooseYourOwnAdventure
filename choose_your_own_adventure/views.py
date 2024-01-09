@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from .models import Player
+from .models import User
 from django.shortcuts import redirect
 
 def start(request):
@@ -9,7 +9,11 @@ def start(request):
     return render(request, 'start.html', context=context)
 
 def make_choice(request, choice):
-    # Process the user's choice and provide context data
+    
+    user = request.user
+    user.last_choice = choice
+    user.save()
+    
     context = {'choice': choice}
     
     return render(request, f'{choice}.html', context)

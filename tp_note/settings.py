@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'choose_your_own_adventure.apps.ChooseYourOwnAdventureConfig',
 ]
 
+AUTH_USER_MODEL = 'choose_your_own_adventure.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
