@@ -3,25 +3,31 @@
 {% block content %}
     <h1>The Quantum Paradox</h1>
     <p>You wake up in a dimly lit room, surrounded by futuristic technology. The hum of machinery and the faint glow of blinking lights fill the air. A holographic display flickers to life, presenting you with three choices:</p>
+    
+    <div class="choice-container">
+        <p class="choice-description">A console nearby seems to control the room's functions. Do you want to investigate it to learn more about your surroundings?</p>
+        <a href="{% url 'make_choice' choice='console' %}">
+            <button class="choice-button">
+                Investigate the Console
+            </button>
+        </a>
+    </div>
 
-    <!-- Choice 1: Investigate the Console -->
-    <a href="{% url 'make_choice' choice='console' %}">
-        <button>
-            Investigate the Console
-        </button>
-    </a>
+    <div class="choice-container">
+        <p class="choice-description">In one corner of the room, there's a shimmering portal emitting an otherworldly energy. It seems both intriguing and dangerous. Do you want to step through it?</p>
+        <a href="{% url 'make_choice' choice='portal' %}">
+            <button class="choice-button">
+                Examine the Mysterious Portal
+            </button>
+        </a>
+    </div>
 
-    <!-- Choice 2: Examine the Mysterious Portal -->
-    <a href="{% url 'make_choice' choice='portal' %}">
-        <button>
-            Examine the Mysterious Portal
-        </button>
-    </a>
-
-    <!-- Choice 3: Inspect the Personal Log -->
-    <a href="{% url 'make_choice' choice='log' %}">
-        <button>
-            Inspect the Personal Log
-        </button>
-    </a>
+    <div class="choice-container">
+        <p class="choice-description">There's a small device on a table displaying a holographic personal log. It might contain information about who you are and how you ended up here. Do you want to review it?</p>
+        <a href="{% url 'make_choice' choice='log' %}">
+            <button class="choice-button">
+                Inspect the Personal Log
+            </button>
+        </a>
+    </div>
 {% endblock %}

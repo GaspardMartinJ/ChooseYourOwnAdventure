@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>The Quantum Paradox</h1>
+    <p>The personal log reveals that you are a scientist named Dr. Alex Mercer, part of an experiment to unlock the secrets of quantum travel. It seems something went wrong. You have two options:</p>
+    
+    <div class="choice-container">
+        <p class="choice-description">Search for more information about the experiment and potential solutions</p>
+        <a href="{% url 'make_choice' choice='read' %}">
+            <button class="choice-button">
+                Continue Reading the Log
+            </button>
+        </a>
+    </div>
+
+    <div class="choice-container">
+        <p class="choice-description">Head directly to the experiment room to assess the situation firsthand</p>
+        <a href="{% url 'make_choice' choice='experiment' %}">
+            <button class="choice-button">
+                Proceed to the Experiment Room
+            </button>
+        </a>
+    </div>
+{% endblock %}

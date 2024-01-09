@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>The Quantum Paradox</h1>
+    <p>The console displays various controls and information about the facility. You discover that you are on a space station at the edge of the galaxy conducting experiments in quantum physics. Suddenly, an alarm blares! The experiment is destabilizing. You have two options:</p>
+    
+    <div class="choice-container">
+        <p class="choice-description">Quickly attempt to stabilize the experiment using the console controls</p>
+        <a href="{% url 'make_choice' choice='stabilize' %}">
+            <button class="choice-button">
+                Try to Stabilize the Experiment
+            </button>
+        </a>
+    </div>
+
+    <div class="choice-container">
+        <p class="choice-description">Abandon the console and make your way to the emergency escape pods</p>
+        <a href="{% url 'make_choice' choice='evacuate' %}">
+            <button class="choice-button">
+                Evacuate the Station
+            </button>
+        </a>
+    </div>
+{% endblock %}
