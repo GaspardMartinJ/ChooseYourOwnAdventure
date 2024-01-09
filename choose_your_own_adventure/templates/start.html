@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>The Quantum Paradox</h1>
+    <p>You wake up in a dimly lit room, surrounded by futuristic technology. The hum of machinery and the faint glow of blinking lights fill the air. A holographic display flickers to life, presenting you with three choices:</p>
+
+    <!-- Choice 1: Investigate the Console -->
+    <a href="{% url 'make_choice' choice='console' %}">
+        <button>
+            Investigate the Console
+        </button>
+    </a>
+
+    <!-- Choice 2: Examine the Mysterious Portal -->
+    <a href="{% url 'make_choice' choice='portal' %}">
+        <button>
+            Examine the Mysterious Portal
+        </button>
+    </a>
+
+    <!-- Choice 3: Inspect the Personal Log -->
+    <a href="{% url 'make_choice' choice='log' %}">
+        <button>
+            Inspect the Personal Log
+        </button>
+    </a>
+{% endblock %}
