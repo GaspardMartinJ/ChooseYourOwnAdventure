@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>The Quantum Paradox</h1>
+    <p>Armed with the knowledge from the personal log, you head to the experiment room. The situation is dire. Two choices confront you:</p>
+    
+    <div class="choice-container">
+        <p class="choice-description">Utilize the failsafe protocol mentioned in the log to stabilize the experiment</p>
+        <a href="{% url 'make_choice' choice='logStab' %}">
+            <button class="choice-button">
+                Stabilize the Experiment
+            </button>
+        </a>
+    </div>
+
+    <div class="choice-container">
+        <p class="choice-description">Take a risky approach and attempt to manually override the controls to stabilize the experiment</p>
+        <a href="{% url 'make_choice' choice='override' %}">
+            <button class="choice-button">
+                Manually Override the Controls
+            </button>
+        </a>
+    </div>
+{% endblock %}
