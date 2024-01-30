@@ -1,0 +1,19 @@
+<!-- inspect_log.html -->
+{% extends 'base.html' %}
+
+{% load static %} <!-- Ajoutez cette ligne -->
+
+{% block content %}
+<h1>Inspecting the Personal Log</h1>
+<p>You open the personal log and begin reading about the quantum experiment. Suddenly, a bright flash of light envelops
+    you...</p>
+<p>As the light fades, you find yourself in a strange alien environment.</p>
+<p>Before you can react, a giant alien creature appears!</p>
+
+<img src="{% static 'img/alien.jpeg' %}" alt="Alien Creature"
+    style="height: 400px; width: 600px; border-radius: 5px; box-shadow: 10px;">
+
+<h3 style="color: red; ">Unfortunately, your journey ends here. The alien creature devours you, and the mysteries of the
+    quantum experiment
+    will remain unsolved.</h3>
+{% endblock %}

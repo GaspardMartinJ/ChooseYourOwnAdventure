@@ -16,3 +16,27 @@
     margin-top: 5px;
     color: #555;
 }
+
+/* static/css/styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #0066cc;
+}
+
+p {
+    line-height: 1.5;
+}
