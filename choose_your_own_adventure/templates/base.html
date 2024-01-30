@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 </head>
 <body>
+    <header>
+        <a href="{% url 'home' %}">
+            {% comment %} <img src="{% static 'images/logo.jpg' %}" alt="Quantum Paradox Logo"> {% endcomment %}
+            Home
+        </a>
+    </header>
     <div id="content">
         {% block content %}{% endblock %}
     </div>
