@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from choose_your_own_adventure.forms import CustomAuthenticationForm, CustomUserCreationForm
@@ -7,11 +7,11 @@ from django.shortcuts import redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
-def home(request):
+def home(request: HttpRequest):
     return render(request, 'home.html')
     
 
-def register(request):
+def register(request: HttpRequest):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -23,7 +23,7 @@ def register(request):
     
     return render(request, 'registration/register.html', {'form': form})
 
-def user_login(request):
+def user_login(request: HttpRequest):
     if request.method == 'POST':
         form = CustomAuthenticationForm(request, request.POST)
         if form.is_valid():
@@ -36,12 +36,20 @@ def user_login(request):
     return render(request, 'registration/login.html', {'form': form})
 
 @login_required
-def make_choice(request, choice):
-    
+def make_choice(request: HttpRequest, choice: str):
     user = request.user
     user.last_choice = choice
+    
+    if request.GET.get('reset') or choice != "start":
+        user.clicks += 1
+    else:
+        user.clicks = 0
+        
     user.save()
     
-    context = {'choice': choice}
+    context = {'choice': choice, "clicks": user.clicks}
+    
+    if user.clicks > 10:
+        return render(request, 'secret.html', context)
     
     return render(request, f'{choice}.html', context)
