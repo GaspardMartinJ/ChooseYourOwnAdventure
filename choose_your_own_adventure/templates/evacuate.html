@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 
+{% block headerLink %}
+    <a href="{% url 'make_choice' choice='start' %}">
+        Return to start
+    </a>
+{% endblock %}
+
+{% load static %}
+
 {% block content %}
     <h1>Evacuating the Station</h1>
     <p>You try to evacuate using the escape pod but it's too damaged ! It bursts into flames and you are burnt alive.</p>
+
+    <img src="{% static 'img/pod.jpg' %}" alt="Burning Pod"
+        style="height: 400px; width: 600px; border-radius: 5px; box-shadow: 10px;">
     <p>You Lose.</p>
 {% endblock %}

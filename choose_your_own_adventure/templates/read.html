@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block headerLink %}
+    <a href="{% url 'make_choice' choice='start' %}">
+        Return to start
+    </a>
+{% endblock %}
+
 {% load static %}
 
 {% block content %}

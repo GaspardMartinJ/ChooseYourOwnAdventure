@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block headerLink %}
+    <a href="{% url 'make_choice' choice='start' %}">
+        Return to start
+    </a>
+{% endblock %}
+
 {% block content %}
     <h1>Inspecting the Personal Log</h1>
     <p>The personal log reveals that you are a scientist named Dr. Alex Mercer, part of an experiment to unlock the secrets of quantum travel. It seems something went wrong. You have two options:</p>

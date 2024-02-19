@@ -10,10 +10,12 @@
 </head>
 <body>
     <header>
+        {% block headerLink %}
         <a href="{% url 'home' %}">
             {% comment %} <img src="{% static 'images/logo.jpg' %}" alt="Quantum Paradox Logo"> {% endcomment %}
             Home
         </a>
+        {% endblock %}
     </header>
     <div id="content">
         {% block content %}{% endblock %}

@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
+{% block headerLink %}
+    <a href="{% url 'make_choice' choice='start' %}">
+        Return to start
+    </a>
+{% endblock %}
+
+{% load static %}
+
 {% block content %}
     <h1>Stabilizing the Experiment</h1>
     <p>Using the knowledge from the logs, you manage to stabilize the experiment. The portal in the room becomes green. You step through it and are transported to your home world !</p>
+    <img src="{% static 'img/green-portal.png' %}" alt="Green Portal"
+        style="height: 400px; width: 600px; border-radius: 5px; box-shadow: 10px;">
     <p>You Win !</p>
 {% endblock %}

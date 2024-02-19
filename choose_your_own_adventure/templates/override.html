@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
+{% block headerLink %}
+    <a href="{% url 'make_choice' choice='start' %}">
+        Return to start
+    </a>
+{% endblock %}
+
+{% load static %}
+
 {% block content %}
     <h1>Overriding the Controls</h1>
     <p>You try to override the controls but you forgot the admin password ! After the third failed attempt at guessing it, the automatic laser turret shoots you in the head.</p>
+    <img src="{% static 'img/turret.png' %}" alt="Turret"
+        style="height: 400px; width: 600px; border-radius: 5px; box-shadow: 10px;">
     <p>You Lose.</p>
 {% endblock %}

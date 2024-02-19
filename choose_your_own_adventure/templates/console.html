@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block headerLink %}
+    <a href="{% url 'make_choice' choice='start' %}">
+        Return to start
+    </a>
+{% endblock %}
+
 {% block content %}
     <h1>Investigating the Console</h1>
     <p>The console displays various controls and information about the facility. You discover that you are on a space station at the edge of the galaxy conducting experiments in quantum physics. Suddenly, an alarm blares! The experiment is destabilizing. You have two options:</p>
