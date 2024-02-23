@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block headerLink %}
+    <a href="{% url 'logout' %}">
+        Logout
+    </a>
+{% endblock %}
+
 {% block content %}
     <h1>The Quantum Paradox</h1>
     <p>You wake up in a dimly lit room, surrounded by futuristic technology. The hum of machinery and the faint glow of blinking lights fill the air. A holographic display flickers to life, presenting you with three choices:</p>

@@ -4,12 +4,11 @@ from django.views import View
 from choose_your_own_adventure.forms import CustomAuthenticationForm, CustomUserCreationForm
 from .models import User
 from django.shortcuts import redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 def home(request: HttpRequest):
     return render(request, 'home.html')
-    
 
 def register(request: HttpRequest):
     if request.method == 'POST':
@@ -35,6 +34,10 @@ def user_login(request: HttpRequest):
     
     return render(request, 'registration/login.html', {'form': form})
 
+def user_logout(request):
+    logout(request)
+    return redirect('home')
+
 @login_required
 def make_choice(request: HttpRequest, choice: str):
     user = request.user
@@ -49,7 +52,7 @@ def make_choice(request: HttpRequest, choice: str):
     
     context = {'choice': choice, "clicks": user.clicks}
     
-    if user.clicks > 10:
+    if user.clicks > 10 and choice in ("start", "portal"):
         return render(request, 'secret.html', context)
     
     return render(request, f'{choice}.html', context)
